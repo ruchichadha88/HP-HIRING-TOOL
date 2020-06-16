@@ -108,7 +108,7 @@
                 <input id="marks_card" type="file">
             </div>
             <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Marks Card">
+                <input class="file-path validate" type="text" placeholder="Marksheet">
             </div>
         </div>
 
@@ -241,7 +241,7 @@
         </div>
 
         <div class="col s3">
-            <input id="hpemailid" class="validate" type="email" style="margin-top: 15px">
+            <input id="hpemailid" class="validate" type="email" style="margin-top: 15px" placeholder="HP Email ID">
         </div>
         
         <div class="input-field col s3">
@@ -318,14 +318,34 @@
             hiringData.set("BussinessUnit", $('#bu option:selected').text());
             hiringData.set("Entity", $('#in option:selected').text());
             hiringData.set("EmployeeID",$('#employeeid').val())
-            hiringData.set("HPEmailID",$('#hpemailid').text())
-            hiringData.set("TechnicalTrainer",$('#technicaltrainer').text())
-            hiringData.set("SoftSkillTrainer",$('#softskillstrainer').text())
-            hiringData.set("Manager",$('#manager').text())
+            hiringData.set("HPEmailID",$('#hpemailid').val())
+            hiringData.set("TechnicalTrainer",$('#technicaltrainer').val())
+            hiringData.set("SoftSkillTrainer",$('#softskillstrainer').val())
+            hiringData.set("Manager",$('#manager').val())
+
+            /** 
+             * Adding File Uploads seperately
+            */
+
+            var resume = new Parse.File("Resume.pdf", $("#updated_resume")[0].files[0]);
+            var marksheet = new Parse.File("MarkSheet.pdf", $("#marks_card")[0].files[0]);
+            var provisionalDegree = new Parse.File("ProvisionalDegree.pdf", $('#provisional_degree')[0].files[0]);
+            var releivingLetter = null
+            if($('#relieving_letter')[0].files.length>0)
+                releivingLetter = new Parse.File("ReleivingLetter",$('#relieving_letter')[0].files[0]);
+            var idProof1 = new Parse.File("IDProof1", $('#id-proof')[0].files[0]);
+            var idProof2 = new Parse.File("IDProof2", $('#id-proof2')[0].files[0]);
+
+            hiringData.set("Resume",resume)
+            hiringData.set("MarkSheet",marksheet)
+            hiringData.set("ProvisionalDegree",provisionalDegree)
+            hiringData.set("ReleivingLetter",releivingLetter)
+            hiringData.set("IDProof-1",idProof1)
+            hiringData.set("IDProof-2",idProof2)
+
 
             hiringData.save()
                 .then((hiringData) => {
-                    alert("Employee data has been saved.");
                     const MasterData = Parse.Object.extend('MasterData');
                     const masterData = new MasterData();
 
@@ -334,15 +354,11 @@
                     masterData.set("ContactNumber", $('#contact_number').val());
                     masterData.set("Level", $('#level option:selected').text());
                     masterData.set("EmailId", $('#email').val());
-                    // masterData.set("Resume",$('#salary_band_from').val());
-                    // masterData.set("MarksCards",$('#salary_band_to').val());
-                    // masterData.set("ProvisionalDegree",$('#salary_band_to').val());
-                    // masterData.set("RelievingLetter",$('#salary_band_to').val());
-                    // masterData.set("Passport/DL",$('#salary_band_to').val());
-                    // masterData.set("Aadhar/PANCard",$('#salary_band_to').val());
                     masterData.set("Region", $('#region option:selected').text());
                     masterData.set("isAttrition", "No");
                     masterData.save();
+
+                    alert("Employee data has been saved.");
                 })
                 .catch((err) => {
                     alert(err);
