@@ -84,7 +84,7 @@
         </div>
 
         <div class="col s3">
-            <input id="email" type="email" style="margin-top: 15px" placeholder="Email id">
+            <input id="email" class="validate" type="email" style="margin-top: 15px" placeholder="Email id">
         </div>
 
     </div>
@@ -236,12 +236,12 @@
         </div>
 
         <div class="input-field col s3">
-            <input id="employeeid" type="text" class="validate">
+            <input id="employeeid" type="number" class="validate">
             <label for="employeeid">Employee ID</label>
         </div>
 
         <div class="col s3">
-            <input id="hpemailid" type="email" style="margin-top: 15px" placeholder="HP Email id">
+            <input id="hpemailid" class="validate" type="email" style="margin-top: 15px">
         </div>
         
         <div class="input-field col s3">
@@ -307,12 +307,6 @@
             hiringData.set("Level", $('#level option:selected').text());
             hiringData.set("EmailId", $('#email').val());
             hiringData.set("Gender", $('#gender option:selected').text());
-            // hiringData.set("Resume",$('#salary_band_from').val());
-            // hiringData.set("MarksCards",$('#salary_band_to').val());
-            // hiringData.set("ProvisionalDegree",$('#salary_band_to').val());
-            // hiringData.set("RelievingLetter",$('#salary_band_to').val());
-            // hiringData.set("Passport/DL",$('#salary_band_to').val());
-            // hiringData.set("Aadhar/PANCard",$('#salary_band_to').val());
             hiringData.set("Vendor", $('#vendor').val());
             hiringData.set("Region", $('#region option:selected').text());
             hiringData.set("YearOfPassing", $('#year').val());
@@ -323,14 +317,11 @@
             hiringData.set("Address", $('#address').val());
             hiringData.set("BussinessUnit", $('#bu option:selected').text());
             hiringData.set("Entity", $('#in option:selected').text());
-            hiringData.set("EmployeeID",$('#employeeid'))
-            hiringData.set("HPEmailID",$('#hpemailid'))
-            hiringData.set("TechnicalTrainer",$('#technicaltrainer'))
-            hiringData.set("SoftSkillTrainer",$('#softskillstrainer'))
-            hiringData.set("Manager",$('#manager'))
-
-
-            // hiringData.set("ResignationLetter",file);
+            hiringData.set("EmployeeID",$('#employeeid').val())
+            hiringData.set("HPEmailID",$('#hpemailid').text())
+            hiringData.set("TechnicalTrainer",$('#technicaltrainer').text())
+            hiringData.set("SoftSkillTrainer",$('#softskillstrainer').text())
+            hiringData.set("Manager",$('#manager').text())
 
             hiringData.save()
                 .then((hiringData) => {
@@ -363,7 +354,7 @@
     function validateAll() {
         if ($('#id-proof').val()!=''
             && $('#id-proof2').val()!=''
-            && $('#relieving_letter').val()!=''
+            // && $('#relieving_letter').val()!=''
             && $('#marks_card').val()!=''
             && $('#provisional_degree').val()!=''
             && $('#updated_resume').val()!=''){
