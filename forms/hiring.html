@@ -234,6 +234,32 @@
             </select>
             <label>IN90 / IN30</label>
         </div>
+
+        <div class="input-field col s3">
+            <input id="employeeid" type="text" class="validate">
+            <label for="employeeid">Employee ID</label>
+        </div>
+
+        <div class="col s3">
+            <input id="hpemailid" type="email" style="margin-top: 15px" placeholder="HP Email id">
+        </div>
+        
+        <div class="input-field col s3">
+            <input id="techtnicaltrainer" type="text" class="validate">
+            <label for="techtnicaltrainer">Technical Trainer</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s3">
+            <input id="manager" type="text" class="validate">
+            <label for="manager">Manager</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="softskillstrainer" type="text" class="validate">
+            <label for="softskillstrainer">Soft Skills Trainer</label>
+        </div>
     </div>
 
     <div class="center">
@@ -296,7 +322,12 @@
             hiringData.set("Longitude", $('#long').val());
             hiringData.set("Address", $('#address').val());
             hiringData.set("BussinessUnit", $('#bu option:selected').text());
-            hiringData.set("IN99/IN30", $('#in option:selected').text());
+            hiringData.set("Entity", $('#in option:selected').text());
+            hiringData.set("EmployeeID",$('#employeeid'))
+            hiringData.set("HPEmailID",$('#hpemailid'))
+            hiringData.set("TechnicalTrainer",$('#technicaltrainer'))
+            hiringData.set("SoftSkillTrainer",$('#softskillstrainer'))
+            hiringData.set("Manager",$('#manager'))
 
 
             // hiringData.set("ResignationLetter",file);
