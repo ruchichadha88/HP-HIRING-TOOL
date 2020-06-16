@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HP - Elevation</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/556381e93d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<div id="facts"> </div>
+<div class="parallax-container">
+    <div class="bg center" style="background: #0095d9;height: 180px"><br><br>
+        <h2 class="center" style="color: white; font-weight: 100; margin-top:5px;"><a href="./../portal.html"><i style="position: absolute;left: 0;font-size: 60px;color: white;" class="material-icons">home</i> </a>HP Event Portal </h2>
+    </div>
+</div>
+
+<div style="margin-top: -250px">
+    <!-- Form -->
+    <div class="row">
+        <div class="input-field col s3">
+            <input id="ecode" type="text" class="validate">
+            <label for="ecode">Employee Code</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="name" type="text" class="validate">
+            <label for="name">Name</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select>
+                <option value="" disabled selected>Choose the level</option>
+                <option value="1">L0</option>
+                <option value="2">L1</option>
+                <option value="3">L1.5</option>
+                <option value="4">L2</option>
+            </select>
+            <label>Level</label>
+        </div>
+
+        <div class="col s3">
+            <input type="text" class="datepicker" placeholder="DOJ" style="margin-top: 15px">
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col s3">
+            <input type="text" class="datepicker" placeholder="LWD" style="margin-top: 15px">
+        </div>
+
+        <div class="input-field col s3">
+            <input id="tenurity" type="text" class="validate">
+            <label for="tenurity">Tenurity</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="manager" type="text" class="validate">
+            <label for="manager">Manager</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="operationsManager" type="text" class="validate">
+            <label for="operationsManager">Operations Manager</label>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="input-field col s3">
+            <select>
+                <option value="" disabled selected>Choose the BU</option>
+                <option value="1">IPG</option>
+                <option value="2">PSG</option>
+                <option value="3">Core Ops</option>
+                <option value="4">Support function</option>
+            </select>
+            <label>Business Unit</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select>
+                <option value="" disabled selected>Choose the IN99/IN30</option>
+                <option value="1">IPG</option>
+                <option value="2">PSG</option>
+                <option value="3">Core Ops</option>
+                <option value="4">Support function</option>
+            </select>
+            <label>IN90 / IN30</label>
+        </div>
+
+        <div class="col s3">
+            <input type="text" class="datepicker" placeholder="Resignation Date" style="margin-top: 15px">
+        </div>
+
+        <div class="col s3">
+            <input type="text" class="datepicker" placeholder="Intimation Date" style="margin-top: 15px">
+        </div>
+
+    </div>
+
+    <div class="row center">
+
+        <div class="input-field col s3 center">
+            <input id="vendor" type="text" class="validate">
+            <label for="vendor">Vendor</label>
+        </div>
+
+        <div class="input-field col s3 center">
+            <input id="comments" type="text" class="validate">
+            <label for="comments">Comments/Reason for Attrition</label>
+        </div>
+
+        <div class="input-field col s3 center">
+            <input id="region" type="text" class="validate">
+            <label for="region">Region</label>
+        </div>
+
+    </div>
+
+    <div class="center">
+        <a class="waves-effect waves-light btn modal-trigger" style="background:#0095d9"><i class="material-icons right">send</i>SUBMIT</a>
+    </div>
+
+</div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../javascripts/init.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.modal').modal();
+    });
+</script>
+</body>
+</html>

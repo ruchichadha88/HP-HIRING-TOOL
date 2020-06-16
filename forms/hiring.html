@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HP - Elevation</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/556381e93d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<div id="facts"> </div>
+<div class="parallax-container" style="height: 180px">
+    <div class="bg center" style="background: #0095d9;height: 180px"><br><br>
+        <h2 class="center" style="color: white; font-weight: 100; margin-top:5px;"><a href="./../portal.html"><i style="position: absolute;left: 0;font-size: 60px;color: white;" class="material-icons">home</i> </a>HP New Hire Registration </h2>
+    </div>
+</div>
+
+<br><br>
+<div>
+    <!-- Form -->
+    <form>
+    <div class="row">
+        <div class="input-field col s3">
+            <input id="name" type="text" class="validate" required>
+            <label for="name">Name</label>
+        </div>
+
+
+        <div class="col s3">
+            <input id="doj" type="text" class="datepicker" placeholder="DOJ" style="margin-top: 15px">
+        </div>
+
+        <div class="input-field col s3">
+            <input id="month" type="text" class="validate">
+            <label for="month">Month</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="routing">
+                <option value="" disabled selected>Choose the routing</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+            <label>Routing</label>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="input-field col s3">
+            <input id="contact_number" type="number" class="validate">
+            <label for="contact_number">Contact Number</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="gender">
+                <option value="" disabled selected>Choose the gender</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+            <label>GENDER</label>
+        </div>
+
+
+        <div class="input-field col s3">
+            <select id="level">
+                <option value="" disabled selected>Choose the level</option>
+                <option value="1">L0</option>
+                <option value="2">L1</option>
+                <option value="3">L1.5</option>
+                <option value="4">L2</option>
+                <option value="5">Niche Skills</option>
+            </select>
+            <label>Level</label>
+        </div>
+
+        <div class="col s3">
+            <input id="email" type="email" style="margin-top: 15px" placeholder="Email id">
+        </div>
+
+    </div>
+
+    <div class="row">
+
+
+        <div class="file-field input-field col s3">
+            <div class="btn" style="background: #0095d9">
+                <span>File</span>
+                <input id="updated_resume" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Updated Resume">
+            </div>
+        </div>
+
+        <div class="file-field input-field col s3">
+            <div class="btn" style="background: #0095d9">
+                <span>File</span>
+                <input id="marks_card" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Marks Card">
+            </div>
+        </div>
+
+        <div class="file-field input-field col s3">
+            <div class="btn" style="background: #0095d9">
+                <span>File</span>
+                <input id="provisional_degree" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Provisional Degree">
+            </div>
+        </div>
+
+        <div class="file-field input-field col s3">
+            <div class="btn" style="background: #0095d9">
+                <span>File</span>
+                <input id="relieving_letter" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Relieving Letter">
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row center">
+
+
+        <div class="file-field input-field col s3">
+            <div class="btn" style="background: #0095d9">
+                <span>File</span>
+                <input id="id-proof" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Passport/DL/Voter Id">
+            </div>
+        </div>
+
+        <div class="file-field input-field col s3">
+            <div class="btn" style="background: #0095d9">
+                <span>File</span>
+                <input id="id-proof2" type="file" required>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Aadhar/PAN Card">
+            </div>
+        </div>
+
+        <div class="input-field col s3 center">
+            <input id="vendor" type="text" class="validate" required>
+            <label for="vendor">Vendor</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="region">
+                <option value="" disabled selected>Choose the region</option>
+                <option value="1">EMEA</option>
+                <option value="2">India</option>
+                <option value="3">AMS - IN30</option>
+                <option value="4">AMS - PRINT</option>
+                <option value="5">India - PRINT</option>
+                <option value="6">AMS - IN99</option>
+                <option value="7">APAC</option>
+                <option value="8">Support Function</option>
+            </select>
+            <label>REGION</label>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="input-field col s3 center">
+            <input id="year" type="text" class="validate">
+            <label for="year">Year of Passing</label>
+        </div>
+        <div class="input-field col s3 center">
+            <input id="month_of_passing" type="text" class="validate">
+            <label for="month_of_passing">Month of passing</label>
+        </div>
+        <div class="input-field col s3 center">
+            <input id="point_of_contact" type="text" class="validate">
+            <label for="point_of_contact">Point of Contact</label>
+        </div>
+        <div class="col s3">
+            <input id="lat" type="number" style="margin-top: 15px" placeholder="Latitude">
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col s3">
+            <input id="long" type="number" style="margin-top: 15px" placeholder="Longitude">
+        </div>
+
+        <div class="input-field col s6">
+            <textarea id="address" class="materialize-textarea"></textarea>
+            <label for="address">Address</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select>
+                <option value="" disabled selected>Choose the BU</option>
+                <option value="1">IPG</option>
+                <option value="2">PSG</option>
+                <option value="3">Core Ops</option>
+                <option value="4">Support function</option>
+            </select>
+            <label>Business Unit</label>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="input-field col s3">
+            <select id="in">
+                <option value="" disabled selected>Choose the IN99/IN30</option>
+                <option value="1">IN99</option>
+                <option value="2">IN30</option>
+            </select>
+            <label>IN90 / IN30</label>
+        </div>
+    </div>
+
+    <div class="center">
+        <a id="submit" class="waves-effect waves-light btn" style="background:#0095d9"><i class="material-icons right">send</i>SUBMIT</a>
+    </div>
+    </form>
+</div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../javascripts/init.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.modal').modal();
+    });
+</script>
+
+<script>
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    $('#month').val(monthNames[new Date().getMonth()]);
+</script>
+<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+<script src="./../javascripts/parse-init.js"></script>
+<script type="text/javascript">
+    $('#submit').click(function() {
+        if (validateAll()) {
+            const HiringData = Parse.Object.extend("HiringData");
+            const hiringData = new HiringData();
+
+            hiringData.set("Name", $('#name').val());
+            hiringData.set("DOJ", $('#doj').val());
+            hiringData.set("Month", $('#month').val());
+            hiringData.set("Routing", $('#routing option:selected').text());
+            hiringData.set("ContactNumber", $('#contact_number').val());
+            hiringData.set("Level", $('#level option:selected').text());
+            hiringData.set("EmailId", $('#email').val());
+            hiringData.set("Gender", $('#gender option:selected').text());
+            // hiringData.set("Resume",$('#salary_band_from').val());
+            // hiringData.set("MarksCards",$('#salary_band_to').val());
+            // hiringData.set("ProvisionalDegree",$('#salary_band_to').val());
+            // hiringData.set("RelievingLetter",$('#salary_band_to').val());
+            // hiringData.set("Passport/DL",$('#salary_band_to').val());
+            // hiringData.set("Aadhar/PANCard",$('#salary_band_to').val());
+            hiringData.set("Vendor", $('#vendor').val());
+            hiringData.set("Region", $('#region option:selected').text());
+            hiringData.set("YearOfPassing", $('#year').val());
+            hiringData.set("MonthOfPassing", $('#month_of_passing').val());
+            hiringData.set("PointOfContact", $('#point_of_contact').val());
+            hiringData.set("Latitude", $('#lat').val());
+            hiringData.set("Longitude", $('#long').val());
+            hiringData.set("Address", $('#address').val());
+            hiringData.set("BussinessUnit", $('#bu option:selected').text());
+            hiringData.set("IN99/IN30", $('#in option:selected').text());
+
+
+            // hiringData.set("ResignationLetter",file);
+
+            hiringData.save()
+                .then((hiringData) => {
+                    alert("Employee data has been saved.");
+                    const MasterData = Parse.Object.extend('MasterData');
+                    const masterData = new MasterData();
+
+                    masterData.set("EmployeeName", $('#name').val());
+                    masterData.set("DOJ", $('#doj').val());
+                    masterData.set("ContactNumber", $('#contact_number').val());
+                    masterData.set("Level", $('#level option:selected').text());
+                    masterData.set("EmailId", $('#email').val());
+                    // masterData.set("Resume",$('#salary_band_from').val());
+                    // masterData.set("MarksCards",$('#salary_band_to').val());
+                    // masterData.set("ProvisionalDegree",$('#salary_band_to').val());
+                    // masterData.set("RelievingLetter",$('#salary_band_to').val());
+                    // masterData.set("Passport/DL",$('#salary_band_to').val());
+                    // masterData.set("Aadhar/PANCard",$('#salary_band_to').val());
+                    masterData.set("Region", $('#region option:selected').text());
+                    masterData.set("isAttrition", "No");
+                    masterData.save();
+                })
+                .catch((err) => {
+                    alert(err);
+                });
+        }
+    });
+</script>
+<script>
+    function validateAll() {
+        if ($('#id-proof').val()!=''
+            && $('#id-proof2').val()!=''
+            && $('#relieving_letter').val()!=''
+            && $('#marks_card').val()!=''
+            && $('#provisional_degree').val()!=''
+            && $('#updated_resume').val()!=''){
+            return true;
+        }
+
+        alert("Please upload all the documents.");
+        return false;
+    }
+</script>
+</body>
+</html>

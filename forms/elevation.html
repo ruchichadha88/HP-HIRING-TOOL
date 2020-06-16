@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HP - Elevation Portal</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/556381e93d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<div id="facts"> </div>
+<div class="parallax-container" style="height: 180px">
+    <div class="bg center" style="background: #0095d9;height: 180px"><br><br>
+        <h2 class="center" style="color: white; font-weight: 100; margin-top:5px;"><a href="./../portal.html"><i style="position: absolute;left: 0;font-size: 60px;color: white;" class="material-icons">home</i> </a>HP Elevation Portal </h2>
+    </div>
+</div>
+
+<br><br>
+<div>
+    <!-- Form -->
+    <div class="row">
+        <div class="input-field col s3">
+            <input id="ecode" type="text" class="validate">
+            <label for="ecode">Employee Id</label>
+        </div>
+
+        <div class="col s3 center">
+            <a id="search" class="waves-effect waves-light btn-large" style="background: #0095d9">Search</a>
+        </div>
+    </div>
+
+    <br>
+    <div class="details center" style="margin-left: 150px">
+        <div class="row container">
+
+        <div class="input-field col s3">
+            <input placeholder="Current Level" disabled id="current_level" type="text" class="validate">
+            <label for="current_level">Current Level</label>
+        </div>
+
+            <div class="input-field col s3">
+                <input placeholder="Name" disabled id="name" type="text" class="validate">
+                <label for="name">Name</label>
+            </div>
+
+            <div class="input-field col s3">
+                <input placeholder="Current Manager" disabled id="current_manager" type="text" class="validate">
+                <label for="current_manager">Current Manager</label>
+            </div>
+        </div>
+
+        <div class="row container">
+
+        <div class="input-field col s3">
+            <select id="level">
+                <option value="" disabled selected>Choose the new level</option>
+                <option value="1">L0</option>
+                <option value="2">L1</option>
+                <option value="3">L1.5</option>
+                <option value="4">L2</option>
+            </select>
+            <label>Elevated Level</label>
+        </div>
+
+        <div class="col s3">
+            <input id="elevation_date" type="text" class="datepicker" placeholder="Elevation Date" style="margin-top: 15px">
+            <label for="elevation_date">Elevation Date</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="location">
+                <option value="" disabled selected>Choose the location</option>
+                <option value="1">ECP</option>
+                <option value="2">GRTP</option>
+                <option value="3">SP</option>
+            </select>
+            <label>Location</label>
+        </div>
+        </div>
+
+        <div class="row container">
+
+        <div class="input-field col s3">
+            <select id="bu">
+                <option value="" disabled selected>Choose the BU</option>
+                <option value="1">IPG</option>
+                <option value="2">PSG</option>
+                <option value="3">Core Ops</option>
+                <option value="4">Support function</option>
+            </select>
+            <label>Business Unit</label>
+        </div>
+
+        <div class="col s3">
+            <input id="new_manager" type="text" placeholder="New Manager" style="margin-top: 15px">
+        </div>
+
+        <div class="input-field col s3">
+            <select id="tg3">
+                <option value="" disabled selected>Choose the TG3</option>
+                <option value="1">Cleared</option>
+                <option value="2">Not Cleared</option>
+                <option value="3">Not Applicable</option>
+            </select>
+            <label>TG3</label>
+        </div>
+
+    </div>
+        <div style="margin-right: 150px">
+            <a id="submit" class="waves-effect waves-light btn" style="background:#0095d9"><i class="material-icons right">send</i>SUBMIT</a>
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../javascripts/init.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.modal').modal();
+    });
+</script>
+<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+<script src="./../javascripts/parse-init.js"></script>
+<script type="text/javascript">
+    $('#submit').click(function() {
+        //alert('hi');
+        const ElevationData = Parse.Object.extend("ElevationData");
+        const elevationData = new ElevationData();
+
+        elevationData.set("EmployeeID",$('#ecode').val());
+        elevationData.set("ElevatedLevel",$('#level option:selected').text());
+        elevationData.set("ElevationDate",$('#elevation_date').val());
+        elevationData.set("Location",$('#location option:selected').text());
+        elevationData.set("BussinessUnit",$('#bu option:selected').text());
+        elevationData.set("NewManager",$('#lhcc').val());
+        elevationData.set("TG3",$('#tg3 option:selected').text());
+        elevationData.set("Category",$('#category').val());
+
+        // elevationData.set("ResignationLetter",file);
+
+        // Updating status
+        object.set("ElevationStatus","Pending Approval");
+        object.save();
+
+        // Saving elevation
+        elevationData.save()
+            .then((elevationData)=>{
+                alert($('#ecode').val()+" request for elevation raised successfully.");
+            });
+
+    });
+</script>
+<script type="text/javascript">
+
+    var object;
+    $('.details').hide();
+    $('#search').click(function () {
+        const MasterData = Parse.Object.extend('MasterData');
+        const query = new Parse.Query(MasterData);
+
+        query.equalTo("EmployeeId", $('#ecode').val());
+        query.count().then((res)=>{
+            if (res==0)
+                alert("Employee Does not Exist");
+            else {
+                query.first().then((obj)=>{
+                    console.log(obj.attributes["Level"]);
+                    object = obj;
+                    if (obj.attributes["isAttrition"]!=="No"){
+                        alert('Employee under attrition. Status-'+obj.attributes["isAttrition"]+'.\nRequest Invalid.');
+                    }else {
+                        if (obj.attributes["ElevationStatus"]!="Pending Approval" && obj.attributes["ElevationStatus"]!="On Hold") {
+
+                            if (obj.attributes["ElevationStatus"]!=undefined)
+                                alert("Candidate is currently- "+obj.attributes["ElevationStatus"]);
+                            $('.details').toggle();
+                            $('#current_level').val(obj.attributes["Level"]);
+                            $('#name').val(obj.attributes["EmployeeName"]);
+                            $('#current_manager').val(obj.attributes["Manager"]);
+                            $('#elevation_date').val(new Date());
+                        }else{
+                            alert("Candidate's previous elevation request is "+obj.attributes["ElevationStatus"]);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

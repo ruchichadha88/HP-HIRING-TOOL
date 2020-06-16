@@ -1,0 +1,265 @@
+<html>
+
+<head>
+  <title>Attrition Details</title>
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="stylesheets/animate.css" rel="stylesheet">
+
+  <script src="https://use.fontawesome.com/556381e93d.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+      new WOW().init();
+  </script>
+
+  <style>
+    .input-field input[type=text]:focus + label {
+      color: #000;
+    }
+    /* label underline focus color */
+    .input-field input[type=text]:focus {
+      border-bottom: 1px solid #000;
+      box-shadow: 0 1px 0 0 #000;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Banner -->
+<div class="parallax-container" style="height: 180px">
+  <div class="bg center" style="background: #0095d9;height: 180px"><br>
+      <h2 class="center" style="color: white; font-weight: 100; margin-top:5px;"><a href="./../"><i style="position: absolute;left: 0;font-size: 60px;color: white;" class="material-icons">home</i> </a>HP Attrition Portal </h2>
+  </div>
+</div>
+
+<br><br>
+<div style="">
+<!-- Form -->
+<div class="row">
+    <div class="input-field col s3">
+      <input id="ecode" type="text" class="validate">
+      <label for="ecode">Employee ID</label>
+    </div>
+
+  <div class="input-field col s3">
+    <input id="name" type="text" class="validate" placeholder="Name">
+    <label for="name">Name</label>
+  </div>
+
+    <div class="col s6 center">
+        <a id="search" class="waves-effect waves-light btn-large" style="background: #0095d9">Search</a>
+    </div>
+</div>
+
+    <div class="details">
+<div class="row">
+
+        <div class="input-field col s3">
+            <input placeholder="Level" id="level" type="text" class="validate" disabled>
+            <label for="level">Level</label>
+        </div>
+
+  <div class="col s3">
+    <input id="doj" placeholder="Date of Joining" disabled type="text" style="margin-top: 15px">
+  </div>
+</div>
+
+<div class="row">
+
+    <div class="col s3">
+        <input id="lwd" type="text" class="datepicker" placeholder="LWD" style="margin-top: 15px">
+        <label for="lwd">Last Working Date</label>
+    </div>
+
+  <div class="input-field col s3">
+    <input placeholder="Tenurity"  id="tenurity" type="text" class="validate">
+    <label for="tenurity">Tenurity</label>
+  </div>
+
+  <div class="input-field col s3">
+    <input placeholder="Level" disabled id="manager" type="text" class="validate">
+    <label for="manager">Manager</label>
+  </div>
+
+  <div class="input-field col s3">
+    <input placeholder="Level" disabled id="operationsManager" type="text" class="validate">
+    <label for="operationsManager">Operations Manager</label>
+  </div>
+</div>
+
+<div class="row">
+
+
+    <div class="col s3">
+        <input id="resignation_date" type="text" class="datepicker" placeholder="Resignation Date" style="margin-top: 15px">
+        <label for="resignation_date">Resignation Date</label>
+    </div>
+
+  <div class="col s3">
+    <input id="current_date" type="text" placeholder="Intimation Date" style="margin-top: 15px">
+      <label for="current_date">Intimation Date</label>
+  </div>
+
+    <div class="input-field col s3 center">
+        <input placeholder="Vendor" id="vendor" type="text" class="validate" disabled>
+        <label for="vendor">Vendor</label>
+    </div>
+
+    <div class="input-field col s3 center">
+        <input id="comments" type="text" class="validate">
+        <label for="comments">Comments/Reason for Attrition</label>
+    </div>
+
+</div>
+
+<div class="row center">
+
+  <div class="input-field col s3 center">
+    <input placeholder="Region" id="region" disabled type="text" class="validate">
+    <label for="region">Region</label>
+  </div>
+
+    <div class="input-field col s3 center">
+        <input id="assets_recovery" type="text" class="validate">
+        <label for="assets_recovery">Assets Recovered</label>
+    </div>
+
+    <div class="input-field col s3 center">
+        <input id="hp_payment" type="number" class="validate">
+        <label for="hp_payment">HP Payment Pending (Rs.)</label>
+    </div>
+
+        <div class="file-field input-field col s3">
+            <div class="btn" style="background: #0095d9">
+                <span>File</span>
+                <input id="resignation_letter" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Resignation Letter">
+            </div>
+        </div>
+</div>
+
+<div class="center">
+    <a id="submit" class="waves-effect waves-light btn" style="background:#0095d9"><i class="material-icons right">send</i>SUBMIT</a>
+</div>
+    </div>
+</div>
+
+<br><br>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content center">
+    <img src="images/checked.png">
+    <br>
+    <p class="center">Data submitted successfully.</p>
+  </div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../javascripts/init.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.modal').modal();
+    });
+</script>
+
+<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+<script src="./../javascripts/parse-init.js"></script>
+<script>
+    $('#current_date').datepicker({
+        defaultDate:new Date(),
+        setDefaultDate:true
+    });
+</script>
+
+<script>
+
+    $('#submit').click(function() {
+        const AttritionData = Parse.Object.extend("AttritionData");
+        const attritionData = new AttritionData();
+
+        var file = new Parse.File('resignation_letter',$('#resignation_letter')[0].files[0])
+        file.save().then(()=>{
+
+            attritionData.set("Name",$('#name').val());
+            attritionData.set("EmployeeID",$('#ecode').val());
+            attritionData.set("Level",$('#level').text());
+            attritionData.set("DOJ",$('#doj').val());
+            attritionData.set("LWD",$('#lwd').val());
+            // TODO: Add Tenurity Logic
+            attritionData.set("Tenurity",$('#tenurity').val());
+            attritionData.set("Manager",$('#manager').val());
+            attritionData.set("OperationsManager",$('#operationsManager').val());
+            attritionData.set("ResignationDate",$('#resignation_date').val());
+            attritionData.set("IntimationDate",$('#current_date').val());
+            attritionData.set("Vendor",$('#vendor').val());
+            attritionData.set("Comments",$('#comments').val());
+            attritionData.set("Region",$('#region').val());
+            attritionData.set("AssetsRecovered",$('#assets_recovery').val());
+            attritionData.set("PaymentsLeft",$('#hp_payment').val());
+            attritionData.set("ResignationLetter",file);
+
+            attritionData.save()
+                .then((gameScore) => {
+                    // Execute any logic that should take place after the object is saved.
+
+                    object.set("isAttrition","In Process");
+                    object.set("LWD", $('#lwd').val());
+                    object.set("ResignationDate", $('#resignation_date').val());
+                    object.save().then((res)=>{alert($('#name').val()+" successfully attrited.")});
+
+                }, (error) => {
+                    // Execute any logic that should take place if the save fails.
+                    // error is a Parse.Error with an error code and message.
+                    alert('Failed to create new object, with error code: ' + error.message);
+                });
+        });
+    });
+
+
+
+</script>
+<script>
+    var object;
+    $('.details').hide();
+    $('#search').click(function () {
+        const MasterData = Parse.Object.extend('MasterData');
+        const query = new Parse.Query(MasterData);
+        console.log("ECODE", $('#ecode').val());
+        query.equalTo("EmployeeId", $('#ecode').val());
+        query.count().then((res)=>{
+            if (res==0)
+                alert("Employee Does not Exist");
+            else {
+                query.first().then((obj)=>{
+                    console.log(obj.attributes["Level"]);
+                    $('.details').toggle();
+
+                    $('#level').val(obj.attributes["Level"]);
+                    $('#doj').val(obj.attributes["DOJ"]);
+                    $('#tenurity').val(obj.attributes["Tenurity"]);
+                    $('#manager').val(obj.attributes["Manager"]);
+                    $('#operationsManager').val(obj.attributes["OpsManager"]);
+                    $('#vendor').val(obj.attributes["Vendor"]);
+                    $('#region').val(obj.attributes["Region"]);
+                    $('#name').val(obj.attributes["EmployeeName"]);
+                    object = obj;
+                });
+            }
+        });
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HP - Elevation</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/556381e93d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<div id="facts"> </div>
+<div class="parallax-container" style="height: 180px;">
+    <div class="bg center" style="background: #0095d9;height: 180px"><br><br>
+        <h2 class="center" style="color: white; font-weight: 100; margin-top:5px;"><a href="./../portal.html"><i style="position: absolute;left: 0;font-size: 60px;color: white;" class="material-icons">home</i> </a>HP Event Nomination Portal </h2>
+    </div>
+</div>
+
+<br><br>
+<div>
+    <!-- Form -->
+    <div class="row container">
+
+        <div class="col s3">
+            <input id="date" type="text" class="datepicker" placeholder="Date" style="margin-top: 15px">
+        </div>
+
+        <div class="input-field col s3">
+            <input id="name" type="text" class="validate">
+            <label for="name">Name</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="level">
+                <option value="" disabled selected>Choose the process</option>
+                <option value="1">L0</option>
+                <option value="2">L1</option>
+                <option value="3">L1.5</option>
+                <option value="4">L2</option>
+            </select>
+            <label>Process</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="region">
+                <option value="" disabled selected>Choose the region</option>
+                <option value="1">EMEA</option>
+                <option value="2">India</option>
+                <option value="3">AMS - IN30</option>
+                <option value="4">AMS - PRINT</option>
+                <option value="5">India - PRINT</option>
+                <option value="6">AMS - IN99</option>
+                <option value="7">APAC</option>
+                <option value="8">Support Function</option>
+            </select>
+            <label>REGION</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="contact_number" type="number" class="validate">
+            <label for="contact_number">Contact Number</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="graduate">
+                <option value="" disabled selected>Choose the qualification</option>
+                <option value="1">YES</option>
+                <option value="2">NO</option>
+            </select>
+            <label>Graduate</label>
+        </div>
+
+    </div>
+
+    <div class="center">
+        <a id="submit" class="waves-effect waves-light btn modal-trigger" style="background:#0095d9"><i class="material-icons right">send</i>NOMINATE</a>
+    </div>
+
+</div>
+
+<br><br>
+
+
+
+
+<table class="highlight container">
+    <thead>
+    <tr>
+        <th>Event Date</th>
+        <th>Employee Name</th>
+        <th>Level</th>
+        <th>Vendor</th>
+        <th>Phone Number</th>
+        <th>Graduate</th>
+    </tr>
+    </thead>
+
+    <tbody id="table-body">
+    </tbody>
+</table>
+
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../javascripts/init.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.modal').modal();
+    });
+</script>
+
+<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+<script src="./../javascripts/parse-init.js"></script>
+<script>
+    $('#submit').click(function () {
+        const EventData = Parse.Object.extend('EventCandList');
+        const eventData = new EventData();
+
+        eventData.set("EmployeeName",$('#name').val());
+        eventData.set("EventDate",$('#date').val());
+        eventData.set("Vendor", window.localStorage.getItem("vendor"));
+        eventData.set("Level",$('#level option:selected').text());
+        eventData.set("Region",$('#region option:selected').text());
+        eventData.set("Graduate",$('#graduate option:selected').text());
+        eventData.set("PhoneNumber",$('#contact_number').val());
+
+        eventData.save().then((res)=>{
+            alert("Candidate Nominated successfully.");
+            var tableBody = "<tr>"
+                +"<td>"+$('#date').val()+"</td>"
+                +"<td>"+$('#name').val()+"</td>"
+                +"<td>"+$('#level option:selected').text()+"</td>"
+                +"<td>"+window.localStorage.getItem("vendor")+"</td>"
+                +"<td>"+$('#contact_number').val()+"</td>"
+                +"<td>"+$('#graduate option:selected').text()+"</td>"
+                +"</tr>";
+
+            $('#table-body').html($('#table-body').html()+tableBody);
+
+        });
+    });
+
+</script>
+</body>
+</html>

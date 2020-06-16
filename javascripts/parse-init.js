@@ -1,0 +1,2 @@
+Parse.initialize("pYA4CUeAZwhrO2hI18Yz34lYm2DY0genl7bxB6pN", "5wriwq9nvfkJ0sy3R5BaAJ0lW9vHAceUe7d01X4W"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+Parse.serverURL = "https://parseapi.back4app.com/";

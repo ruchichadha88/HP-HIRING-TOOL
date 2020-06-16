@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HP - Interview Status</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/556381e93d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<div id="facts"> </div>
+<div class="parallax-container" style="height: 180px;">
+    <div class="bg center" style="background: #0095d9;height: 180px"><br><br>
+        <h2 class="center" style="color: white; font-weight: 100; margin-top:5px;"><a href="./../portal.html"><i style="position: absolute;left: 0;font-size: 60px;color: white;" class="material-icons">home</i> </a>HP Interview Status Portal </h2>
+    </div>
+</div>
+
+<br><br>
+<div>
+    <!-- Form -->
+    <div class="row container">
+
+        <div class="col s3">
+            <input id="date" type="text" class="datepicker" placeholder="Date" style="margin-top: 15px">
+        </div>
+
+        <div class="input-field col s3">
+            <input id="designation" type="text" class="validate">
+            <label for="designation">Open Position</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="name" type="text" class="validate" placeholder="Name">
+            <label for="name">Name</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="contact_number" type="number" class="validate" placeholder="Contact Number">
+            <label for="contact_number">Contact Number</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="vendor" type="text" class="validate" placeholder="Vendor">
+            <label for="vendor">Vendor</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="soft_skills_scores" type="number" class="validate" placeholder="Soft Skills Scores">
+            <label for="soft_skills_scores">Soft Skills Scores</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="technical_scores" type="number" class="validate" placeholder="Technical Scores">
+            <label for="technical_scores">Technical Scores</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="ops_manager" type="text" class="validate" placeholder="Ops Manager">
+            <label for="ops_manager">Ops Manager</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="panel" type="text" class="validate" placeholder="Panel">
+            <label for="name">Panel</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="communication_check" type="number" class="validate" placeholder="Communication Check">
+            <label for="communication_check">Communication Check</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="logical_troubleshooting" type="number" class="validate" placeholder="Logical Troubleshooting">
+            <label for="logical_troubleshooting">Logical Troubleshooting</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="positive_attitude" type="number" class="validate" placeholder="Positive Attitude">
+            <label for="positive_attitude">Positive Attitude</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="willingness" type="number" class="validate" placeholder="Willingness to work in shifts">
+            <label for="willingness">Willingness to work in shifts</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="understanding" type="number" class="validate" placeholder="Understanding of Job/Salary">
+            <label for="understanding">Understanding of Job Profile/Salary</label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="stability">
+                <option value="" disabled selected>Choose the stability</option>
+                <option value="1">YES</option>
+                <option value="2">NO</option>
+            </select>
+            <label>Stability</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="comments" type="text" class="validate" placeholder="Comments">
+            <label for="comments">Comments</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="total" type="number" class="validate" disabled placeholder="Total Score">
+            <label for="total">Total Score</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="status" type="text" class="validate" disabled placeholder="Status">
+            <label for="status">Status</label>
+        </div>
+
+    </div>
+
+    <div class="center">
+        <a id="submit" class="waves-effect waves-light btn modal-trigger" style="background:#0095d9"><i class="material-icons right">send</i>SUBMIT</a>
+        <a id="calculate" class="waves-effect waves-light btn" style="background:#0095d9">CALCULATE</a>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById("calculate").onclick = function () {
+        $('#total').val(12);
+    }
+</script>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../javascripts/init.js"></script>
+
+<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+<script src="./../javascripts/parse-init.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.modal').modal();
+    });
+</script>
+<script>
+    document.getElementById("calculate").onclick = function () {
+        $('#total').val(
+            (parseInt($('#logical_troubleshooting').val())+
+            parseInt($('#communication_check').val())+
+            parseInt($('#positive_attitude').val())+
+            parseInt($('#willingness').val())+
+            parseInt($('#understanding').val()))*4
+        );
+
+        if (parseInt($('#total').val())>70 && $('#stability option:selected').text()==="YES")
+            $('#status').val("PASS");
+        else
+            $('#status').val("FAIL");
+    }
+</script>
+<script>
+    $('#submit').click(function () {
+
+        const InterviewStatusData = Parse.Object.extend('InterviewStatus');
+        const interviewStatusData = new InterviewStatusData();
+
+        interviewStatusData.set("Date",$('#date').val());
+        interviewStatusData.set("OpenPosition",$('#designation').val());
+        interviewStatusData.set("Name",$('#name').val());
+        interviewStatusData.set("ContactNumer",$('#contact_number').val());
+        interviewStatusData.set("Vendor",$('#vendor').val());
+        interviewStatusData.set("SoftSkills",$('#soft_skills_scores').val());
+        interviewStatusData.set("Technical",$('#technical_scores').val());
+        interviewStatusData.set("OpsManager",$('#ops_manager').val());
+        interviewStatusData.set("Panel",$('#panel').val());
+        interviewStatusData.set("Communication",$('#communication_check').val());
+        interviewStatusData.set("Logical",$('#logical_troubleshooting').val());
+        interviewStatusData.set("PositiveAttitude",$('#positive_attitude').val());
+        interviewStatusData.set("Willingness",$('#willingness').val());
+        interviewStatusData.set("Understanding",$('#understanding').val());
+        interviewStatusData.set("Stability",$('#stability').val());
+        interviewStatusData.set("Comments",$('#comments').val());
+        console.log("total: ",$('#total').val());
+        interviewStatusData.set("TotalScore",$('#total').val());
+        interviewStatusData.set("Status",$('#status').val());
+
+        interviewStatusData.save().then((res)=>{
+            alert("Interview Status Updated.");
+        }).catch((err)=>{
+            console.log(err);
+        });
+
+
+
+    })
+</script>
+</body>
+</html>

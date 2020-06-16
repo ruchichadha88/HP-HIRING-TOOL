@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HP - Post Joining Portal</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/556381e93d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<div id="facts"> </div>
+<div class="parallax-container" style="height: 180px">
+    <div class="bg center" style="background: #0095d9;height: 180px"><br><br>
+        <h2 class="center" style="color: white; font-weight: 100; margin-top:5px;"><a href="./../portal.html"><i style="position: absolute;left: 0;font-size: 60px;color: white;" class="material-icons">home</i> </a>HP Post Joining Portal </h2>
+    </div>
+</div>
+
+<br><br>
+<div>
+    <!-- Form -->
+    <div class="row">
+
+
+        <div class="input-field col s3">
+            <input id="vendor" type="text" class="validate">
+            <label for="vendor">Vendor</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="contact_number" type="text" class="validate">
+            <label for="contact_number">Contact Number</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email Id</label>
+        </div>
+
+        <div class="col s3 center">
+            <a id="search" class="waves-effect waves-light btn-large" style="background: #0095d9">Search</a>
+        </div>
+    </div>
+
+    <div class="details">
+    <div class="row">
+
+        <div class="input-field col s3">
+            <input id="ecode" placeholder="Employee Id" type="text" class="validate">
+            <label for="ecode">Employee Id</label>
+        </div>
+
+
+        <div class="col s3">
+            <input id="manager" type="text" placeholder="Manager" style="margin-top: 15px">
+            <label for="ecode">Manager</label>
+        </div>
+
+
+        <div class="input-field col s3">
+            <input id="operationsManager" placeholder="Operations Manager" type="text" class="validate">
+            <label for="operationsManager">Operations Manager</label>
+        </div>
+
+
+        <div class="input-field col s3">
+            <input id="employee_email" placeholder="Employee Email Id" type="email" class="validate">
+            <label for="employee_email">Employee Email Id</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3">
+            <input id="ntid" placeholder="NT ID" type="text" class="validate">
+            <label for="ntid">NT ID</label>
+        </div>
+        </div>
+        <div class="center">
+            <a id="submit" class="waves-effect waves-light btn" style="background:#0095d9"><i class="material-icons right">send</i>SUBMIT</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+
+    </div>
+
+
+</div>
+
+</div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../javascripts/init.js"></script>
+<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+<script src="./../javascripts/parse-init.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.modal').modal();
+    });
+</script>
+<script type="text/javascript">
+    $('.details').hide();
+    $('#search').click(function () {
+        const MasterData = Parse.Object.extend('MasterData');
+        const query = new Parse.Query(MasterData);
+
+        query.equalTo("EmailId", $('#email').val());
+        query.count().then((res)=>{
+            if (res==0)
+                alert("Employee Does not Exist");
+            else {
+                $('.details').toggle();
+                query.first().then((obj)=>{
+                    console.log(obj.attributes["Level"]);
+
+                    $('#operationsManager').val(obj.attributes["OpsManager"]);
+                    $('#ecode').val(obj.attributes["EmployeeId"]);
+                    $('#manager').val(obj.attributes["Manager"]);
+                    $('#employee_email').val(obj.attributes["EmployeeEmailId"]);
+                    $('#ntid').val(obj.attributes["Ntid"]);
+
+                    object = obj;
+                });
+                var object;
+                $('#submit').click(function () {
+                    object.set("OpsManager", $('#operationsManager').val());
+                    object.set("EmployeeId", $('#ecode').val());
+                    object.set("Manager", $('#manager').val());
+                    object.set("EmployeeEmailId", $('#employee_email').val());
+                    object.set("Ntid", $('#ntid').val());
+                    object.save().then((res) => {
+                        alert("Employee details have been updated.");
+                    });
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

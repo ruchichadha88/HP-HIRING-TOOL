@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data View</title>
+    <style>
+        div{
+            display: none;
+        }
+        .lvl1{
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/556381e93d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<br>
+<div style="display: inline;float: left;margin: 10px;" class="lvl1 lvl3"><a class="waves-effect waves-light btn" href="attrition-data.html">Attrition    Data</a></div>
+<div style="display: inline;float: left;margin: 10px;" class="lvl1 lvl3"><a class="waves-effect waves-light btn" href="conversion-data.html">Conversion    Data</a></div>
+
+<div style="display: inline;float: left;margin: 10px;" class="lvl1 lvl3"><a class="waves-effect waves-light btn" href="hiring-req-data.html">Hiring Request Data</a></div>
+
+<div style="display: inline;float: left;margin: 10px;" class="lvl1 lvl3"><a class="waves-effect waves-light btn" href="elevation-data.html">Elevation Data</a></div>
+
+<div style="display: inline;float: left;margin: 10px;" class="lvl1 lvl2 lvl3"><a class="waves-effect waves-light btn" href="hiring-data.html">Hiring Data</a></div>
+
+<div style="display: inline;float: left;margin: 10px;" class="lvl1"><a class="waves-effect waves-light btn" href="hiring-data.html">Event Data</a></div>
+
+<div style="display: inline;float: left;margin: 10px;" class="lvl1"><a class="waves-effect waves-light btn" href="interview-status-data.html">Interview Status Data</a></div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="javascripts/init.js"></script>
+<script>
+    const access = window.localStorage.getItem("access");
+    if (access === "1"){
+        $('.lvl1').show();
+    } else if (access === "2")
+        $('.lvl2').show();
+    else if (access === "3")
+        $('.lvl3').show();
+</script>
+</body>
+</html>

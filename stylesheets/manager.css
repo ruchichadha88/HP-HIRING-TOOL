@@ -1,0 +1,67 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+html,body
+{
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.parallax-container .bg{
+    height: 400px;
+    width: 100%;
+    background: #0D47A1;
+}
+
+.bg .underline{
+    color: #fff;
+}
+
+.bg .underline::before, .bg .underline::after{
+    color: #fff;
+}
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+.icon-block img{
+    height: 60px;
+    width: 60px;
+}
+
+svg {
+    display: block;
+    margin: 60px auto;
+    width: 80%;
+    max-width: 320px;
+    cursor: pointer;
+}
+#all-items {
+    opacity: 0;
+}
+
+.contact-us img{
+    width: 130%;
+    height: 130%;
+    position: relative;
+    right: 80px;
+}
+
+#facts{
+    padding-top: 4.5rem;
+    background: #f4f7f9;
+}
